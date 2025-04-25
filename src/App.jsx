@@ -1,9 +1,42 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Portfolio = () => {
   const formRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    console.log('Form submission started');
+
+    try {
+      const formData = {
+        name: e.target.Name.value,
+        email: e.target.Email.value,
+        message: e.target.Message.value,
+        timestamp: new Date(),
+      };
+      
+      console.log('Form data:', formData);
+      console.log('Attempting to add document to Firestore...');
+      
+      const docRef = await addDoc(collection(db, 'contacts'), formData);
+      console.log('Document written with ID: ', docRef.id);
+      alert('Message submitted successfully!');
+      e.target.reset();
+    } catch (error) {
+      console.error('Detailed error:', error);
+      alert('Failed to submit form. Please try again. Error: ' + error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     const tabLinks = document.getElementsByClassName('tab-links');
@@ -26,36 +59,6 @@ const Portfolio = () => {
     window.closemenu = () => {
       document.getElementById('sidemenu').style.right = '-200px';
     };
-  
-    const form = document.forms['submit-to-google-sheet'];
-  
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = {
-          Name: form.Name.value,
-          Email: form.Email.value,
-          Message: form.Message.value,
-        };
-  
-        fetch('http://localhost:5000/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((res) => res.text())
-          .then((data) => {
-            alert('Message submitted successfully!');
-            form.reset();
-          })
-          .catch((err) => {
-            console.error('Error submitting form:', err);
-            alert('Failed to submit form.');
-          });
-      });
-    }
   }, []);
   
 
@@ -197,13 +200,15 @@ const Portfolio = () => {
               <a href="images/SurajNagreResume New.pdf" download className="btn btn2">Download CV</a>
             </div>
             <div className="contact-right">
-              <form name="submit-to-google-sheet">
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <input type="text" name="Name" placeholder="Your Name" required />
                 <input type="email" name="Email" placeholder="Your Email" required />
                 <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                <button type="submit" className="btn btn2">Submit</button>
+                <button type="submit" className="btn btn2" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
               </form>
-              <span id=""></span>
+              <span id="msg"></span>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ const Portfolio = () => {
             <i className="fas fa-bars" onClick={() => window.openmenu()}></i>
           </nav>
           <div className="header-text">
-            <p>AI/ML Engineer</p>
+            <p className="ai">AI/ML Engineer</p>
             <h1> Hi, I'm <span> Suraj </span><br />Nagre from India</h1>
           </div>
         </div>

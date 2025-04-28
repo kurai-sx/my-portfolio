@@ -326,6 +326,16 @@ form .btn2{
 .copyright i{
   color: #ff004f;
 }
+.hide-logo {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.logo {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
 /*---------- css for small screen  ----------*/
 nav .fas{
   display: none;
@@ -343,6 +353,11 @@ nav .fas{
   .header-text h1 {
     font-size: 30px;
   }
+  nav {
+    position: static;
+    background-color: #ff004f; /* or #080808 if you want black */
+  }
+  
   nav .fas {
     display: block;
     font-size: 25px;

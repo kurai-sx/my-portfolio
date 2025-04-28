@@ -355,7 +355,7 @@ nav .fas{
   }
   nav {
     position: static;
-    background-color: #ff004f; /* or #080808 if you want black */
+    background-color: transparent; /* or #080808 if you want black */
   }
   
   nav .fas {

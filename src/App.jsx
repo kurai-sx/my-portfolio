@@ -132,19 +132,19 @@ const Portfolio = () => {
               <i className="fa fa-code"></i>
               <h2>Artificial Intelligence</h2>
               <p> Worked on various projects like Predictive Maintenance, Content Generation, RAG Models, etc.</p>
-              <a href="#">Learn more</a>
+              <a href="">Learn more</a>
             </div>
             <div>
               <i className="fas fa-crop-alt"></i>
               <h2>Machine Learning</h2>
               <p> Implementing real world solutions with the machinery approach</p>
-              <a href="#">Learn more</a>
+              <a href="">Learn more</a>
             </div>
             <div>
               <i className="fab fa-app-store"></i>
               <h2>AI Agents</h2>
               <p>Creating workflows on n8n and Implementing on real world problems...</p>
-              <a href="#">Learn more</a>
+              <a href="">Learn more</a>
             </div>
           </div>
         </div>
@@ -179,7 +179,7 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <a href="#" className="btn">See more</a>
+          <a href="" className="btn">See more</a>
         </div>
       </div>
 

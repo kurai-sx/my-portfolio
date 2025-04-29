@@ -26,7 +26,7 @@ body{
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   background-color: transparent; /* same as your page background */
   z-index: 1000;

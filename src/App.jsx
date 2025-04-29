@@ -159,7 +159,7 @@ const Portfolio = () => {
               <div className="layer">
                 <h3>Document Reader Agent</h3>
                 <p>Developed an AI using LangChain which can read the document and answer the questions</p>
-                <a href="#"><i className="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/kurai-sx/PDF-Reader-AI-Agent"><i className="fas fa-external-link-alt"></i></a>
               </div>
             </div>
             <div className="work">
@@ -167,7 +167,7 @@ const Portfolio = () => {
               <div className="layer">
                 <h3>Fashion GAN System</h3>
                 <p>This GAN can generate fashionable clothes within the neural network</p>
-                <a href="#"><i className="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/kurai-sx/Building-Generative-Adversarial-Network-GAN"><i className="fas fa-external-link-alt"></i></a>
               </div>
             </div>
             <div className="work">
@@ -175,7 +175,7 @@ const Portfolio = () => {
               <div className="layer">
                 <h3>Chill Cabs App</h3>
                 <p>A Cab Booking Platform with real time tracking and payment integration</p>
-                <a href="#"><i className="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/kurai-sx/Chill-Cabs"><i className="fas fa-external-link-alt"></i></a>
               </div>
             </div>
           </div>
